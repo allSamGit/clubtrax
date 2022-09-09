@@ -72,31 +72,43 @@ function cloneFunc(clickID) {
   alert(clone.innerText);
 
 
-  items.forEach((item, i) => {
+  
 
+  
 
   const el = document.createElement("a");
+  const i=document.createElement("i");
+  i.setAttribute("id",'close');
+  i.setAttribute("class","fa fa-close");
+  i.setAttribute("value","X");
+  items.forEach((item, i) => {
+  item.innerText=clone.innerText;
+  clone.setAttribute("id", `menu-${i + 1}`);
+});
 
   clone.classList.add("menu-items");
-  clone.setAttribute("id", `menu-${i + 1}`);
-
+  
+  clone.appendChild(i);
   
   
   // Create a list item
   const li = document.createElement("li");
   // Append the anchor to the list item
   li.appendChild(clone);
-
-  
+ 
   // Append the list item to the list
   navList.appendChild(li);
   clone.setAttribute("onclick","null");
 
-});
-
+  document.getElementById('close').onclick = function() {
+    this.parentNode.remove();
+    return false;
+  };
+ 
 
  }
 
+  
 
   
 
@@ -120,19 +132,21 @@ var elem = document.activeElement.textContent;
 
     <div class="TabNavigation">
       <ul id="Btn-list">
-        <li class="menu-items" id="menu-1" class="active"> <a  href="#home">Home <span float="right" class=".closebtn" disabled aria-label="Close" onclick="this.parentElement.style.display = 'none';"> <i class="fa fa-remove"></i></span> </a></li>
+        
+        <li class="menu-items" id="menu-1" class="active"> <a  href="#home" data-close>Home <span aria-hidden="true">&times;</span> </a></li>
         <li class="menu-items" id="menu-2"><a>News<span float="right" class=".closebtn" disabled aria-label="Close" onclick="this.parentElement.style.display = 'none';"> <i class="fa fa-close"></i></span></a></li>
         <li class="menu-items" id="menu-3"><a href="#contact">Contact</a></li>
         <li class="menu-items" id="menu-4"><a  href="#about">About</a></li>
       </ul>
     </div>
 
+
 <script>
 
-
+//<li class="menu-items" id="menu-1" class="active"> <a  href="#home">Home <span float="right" class=".closebtn" disabled aria-label="Close" onclick="this.parentElement.style.display = 'none';"> <i class="fa fa-remove"></i></span> </a></li>
 const navMenu = document.querySelectorAll("section");
 const navList = document.getElementById("Btn-list");
-var items = ["section 1","section 2","section 3","section 4","section 5"];
+var items = ["menu-item 0","section 2","section 3","section 4","section 5"];
 
   
 //Build the nav
