@@ -1,0 +1,78 @@
+<html>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script
+src="https://code.jquery.com/jquery-3.6.0.min.js"
+integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+crossorigin="anonymous"
+></script>
+
+<div class="container">
+  <a href="#" id="dropdown-trigger"><span class="caret-dropdown"></span></a>
+</div>
+
+<style>
+/* Demo Purposes */
+.container {
+  width:100px;
+  margin:100px auto 0px;
+}
+/* / Demo Purposes */
+
+
+#dropdown-trigger {
+    display:block;
+}
+.caret-dropdown{
+  cursor: pointer;
+  top:50%;
+  transform:translateY(0%);
+  display:inline-block;
+  height:20px;
+  left:15px;
+  margin-top:2px;
+  position:relative;
+  text-align:left;
+  transition:.4s ease;
+  transform:rotate(0);
+  width:13px;
+  &:after,&:before {
+    background-color:transparent;
+    border-bottom:9px solid #444;
+    box-sizing:content-box;
+    content:'';
+    display:inline-block;
+    height:8px;
+    left:0;
+    position:absolute;top:0;
+    transition:.4s ease;width:1px;
+  }
+  &:before {
+    transform:rotate(135deg);
+  }
+  &:after {
+    transform:rotate(45deg);
+  }
+}
+.caret-dropdown.active {
+  transform:rotate(0);
+  transform:translate(0,6px);
+  &:before {
+    transform:rotate(-135deg);
+  }
+  &:after {
+    transform:rotate(135deg);
+  }
+}
+
+</style>
+
+<script>
+ $(document).ready(function() {
+    $('#dropdown-trigger').click(function(e) {
+      e.preventDefault();
+      $('#dropdown-trigger .caret-dropdown').toggleClass('active');
+    });
+  });
+  </script>
+
+</html>

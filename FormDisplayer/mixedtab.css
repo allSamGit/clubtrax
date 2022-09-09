@@ -1,0 +1,13 @@
+body {
+    flex-direction: column;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+  }
+  .subnav{
+    flex-direction: column;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+  }
+  

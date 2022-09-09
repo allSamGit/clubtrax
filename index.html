@@ -1,0 +1,95 @@
+<?php
+<html>
+<body>
+<title>My Website</title>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="website.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="import" href="accordion.html">
+<script type="text/javascript" src="everything.js"></script>
+
+
+
+<div class="w3-container">
+  <h2>Responsive navbar with responsive dropdown</h2>
+  <p>Resize the browser window to see the result:</p>
+
+  <div class="NavBar">
+    <a href="index.php" class="w3-bar-item w3-button w3-mobile w3-green">Home</a>
+    <a href="#Pos reports" class="w3-bar-item w3-button w3-mobile">POS Reports</a>
+    <a href="#" class="w3-bar-item w3-button w3-mobile">Ent Reports</a>
+	<a href="#" class="w3-bar-item w3-button w3-mobile">Dance Dollar Reports</a>
+	<a href="#" class="w3-bar-item w3-button w3-mobile">Charge Back Reports</a>
+	<a href="#" class="w3-bar-item w3-button w3-mobile">Employees</a>
+	<a href="#" class="w3-bar-item w3-button w3-mobile">Modify Paid Out</a>
+	<a href="#" class="w3-bar-item w3-button w3-mobile">Modify Driver info</a>
+	<a href="#" class="w3-bar-item w3-button w3-mobile">Packets</a>
+	<a href="#" class="w3-bar-item w3-button w3-mobile">Rent Ranking Report Setup</a>
+	<a href="#" class="w3-bar-item w3-button w3-mobile">Inv Setup</a>
+	<a href="#" class="w3-bar-item w3-button w3-mobile">Flash Report</a>
+	<a href="#" class="w3-bar-item w3-button w3-mobile">Comparison Reports</a>
+	<a href="#" class="w3-bar-item w3-button w3-mobile">Reminder Message</a>
+	
+    <div class="w3-dropdown-hover w3-mobile">
+      <button class="w3-button">Dropdown <i class="fa fa-caret-down"></i></button>
+      <div class="w3-dropdown-content w3-bar-block w3-Yellow">
+        <a href="#" class="w3-bar-item w3-button w3-mobile">Link 1</a>
+        <a href="#" class="w3-bar-item w3-button w3-mobile">Link 2</a>
+        <a href="#" class="w3-bar-item w3-button w3-mobile">Link 3</a>
+      </div>
+    </div>
+
+    
+
+</div>
+
+<div w3-include-html="accordion.html"></div>
+
+<script>includeHTML();</script>
+
+<div>
+  <p>Auto width:</p>
+     <button class="btn"><i class="fa fa-download"></i> Download</button>
+</div>
+
+<script>
+
+function includeHTML() {
+  var z, i, elmnt, file, xhttp;
+  /* Loop through a collection of all HTML elements: */
+  z = document.getElementsByTagName("*");
+  for (i = 0; i < z.length; i++) {
+    elmnt = z[i];
+    /*search for elements with a certain atrribute:*/
+    file = elmnt.getAttribute("w3-include-html");
+    if (file) {
+      /* Make an HTTP request using the attribute value as the file name: */
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+          if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+          if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+          /* Remove the attribute, and call this function once more: */
+          elmnt.removeAttribute("w3-include-html");
+          //includeHTML();
+        }
+      }
+      xhttp.open("GET", file, true);
+      xhttp.send();
+      /* Exit the function: */
+      return;
+    }
+  }
+}
+
+</script>
+
+
+
+
+</html> <!--end of the file-->
+
+?>

@@ -1,0 +1,34 @@
+
+<!doctype html>
+<html lang="en">
+<body>
+    <div id="container onclick="function()""></div>
+      <button>click me </button>
+</body>
+</html>
+
+<style>
+    .btn-styled {
+    font-size: 14px;
+    margin: 8px;
+    padding: 0 10px;
+    line-height: 2;
+}
+
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var button = document.createElement('button');
+        button.type = 'button';
+        button.innerHTML = 'Press me';
+        button.className = 'btn-styled';
+     
+        button.onclick = function() {
+            <iframe src="pdf-sample.pdf" id="scaled-frame" scrolling="no"></iframe> 
+        };
+     
+        var container = document.getElementById('container');
+        container.appendChild(button);
+    }, false);
+    </script>

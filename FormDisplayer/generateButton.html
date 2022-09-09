@@ -1,0 +1,53 @@
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<ul id="navbar__list">
+    <a class="menu-items" id="menu-1" href="#section1">Section 1</a>
+    <a class="menu-items" id="menu-2" href="#section2">Section 2</a>
+    <a class="menu-items" id="menu-3" href="#section3">Section 3</a>
+    <a class="menu-items" id="menu-4" href="#section4">Section 4</a>
+    </ul>
+
+    <script>
+const navMenu = document.querySelectorAll("section");
+const navList = document.getElementById("navbar__list");
+const items = ["Section 1", "Section 2", "Section 3", "Section 4","Section 5"];
+
+//Build the nav
+items.forEach((item, i) => {
+  const el = document.createElement("a");
+  el.innerText = item;
+  el.classList.add("menu-items");
+  el.setAttribute("id", `menu-${i + 1}`);
+  el.href = `#section${i + 1}`;
+  
+  // Create a list item
+  const li = document.createElement("li")
+  // Append the anchor to the list item
+  li.appendChild(el);
+  
+  // Append the list item to the list
+  navList.appendChild(li);
+});
+</script>
+<nav class="navbar__menu">
+  <ul id="navbar__list"></ul>
+</nav>
+
+<header class="page__header">
+    <nav class="navbar__menu">
+      <!-- Navigation starts as empty UL that will be populated with JS -->
+      <ul id="navbar__list"></ul>
+    </nav>
+  </header>
+  <main>
+    <header class="main__hero">
+      <h1>Landing Page</h1>
+    </header>
+    <section id="section1" data-nav="Section 1" class="active">
+      <div class="landing__container">
+        <h2>Section 1</h2>
+
+        

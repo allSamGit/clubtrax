@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"crossorigin="anonymous"></script>
+
+<!-- ======= Icons used for dropdown (you can use your own) ======== -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+
+</head>
+
+<style>
+
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+  height: 100%;
+  width: 350px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 2px 1px 3px 32px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 200px; /* Same as the width of the sidenav */
+}
+
+#menu_item1 .nav-link{
+    font-size: 15px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+
+<body>
+
+<div class="sidenav">
+    <nav>
+        <ul class="nav flex-column" id="nav_accordion">
+            <li class="nav-item">
+                <a class="nav-link" href="#"> Link name </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" data-bs-target="#menu_item1" href="#"> Submenu links <i class="bi small bi-caret-down-fill"></i> </a>
+                <ul id="menu_item1" class="submenu collapse" data-bs-parent="#nav_accordion">
+                    <li><a class="nav-link" href="#">Sales Type Report </a></li>
+                    <li><a class="nav-link" href="#">UL Sales </a></li>
+                    <li><a class="nav-link" href="#">Menu Item Report </a> </li>
+                    <li><a class="nav-link" href="#">Tax Report </a></li>
+                    <li><a class="nav-link" href="#">PPA Report </a></li>
+                    <li><a class="nav-link" href="#">Receipt Summary Report </a> </li>
+                    <li><a class="nav-link" href="#">Entertainer Sales Report </a></li>
+                    <li><a class="nav-link" href="#">VIP Summary Report </a></li>
+                    <li><a class="nav-link" href="#">Cab Payouts </a> </li>
+                    <li><a class="nav-link" href="#">Cab Payouts Export </a></li>
+                    <li><a class="nav-link" href="#">Server Sales Summary </a> </li>
+                </ul>
+        
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" data-bs-target="#menu_item2" href="#"> More menus <i class="bi small bi-caret-down-fill"></i> </a>
+                <ul id="menu_item2" class="submenu collapse" data-bs-parent="#nav_accordion">
+                    <li><a class="nav-link" href="#">Submenu item 4 </a></li>
+                    <li><a class="nav-link" href="#">Submenu item 5 </a></li>
+                    <li><a class="nav-link" href="#">Submenu item 6 </a></li>
+                    <li><a class="nav-link" href="#">Submenu item 6 </a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"> Another page </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"> Demo link </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"> Menu item </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"> Something </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"> Other link </a>
+            </li>
+        </ul>
+        </nav>
+</div>
+
+<div class="main">
+  <h2>Sidenav Example</h2>
+  <p>This sidenav is always shown.</p>
+</div>
+   
+</body>
+</html> 

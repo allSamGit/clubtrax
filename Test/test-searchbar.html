@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"crossorigin="anonymous"></script>
+
+<!-- ======= Icons used for dropdown (you can use your own) ======== -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+</head>
+
+<style>
+
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+  height: 100%;
+  width: 350px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 2px 1px 3px 32px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 200px; /* Same as the width of the sidenav */
+}
+
+#menu_item1 .nav-link{
+    font-size: 15px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+
+
+
+
+<style> /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CSS FOR SEARCH~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Create a column layout with Flexbox */
+.row {
+  display: flex;
+}
+
+/* Left column (menu) */
+.left {
+  flex: 35%;
+  padding: 15px 0;
+}
+
+.left h2 {
+  padding-left: 8px;
+}
+
+/* Right column (page content) */
+.right {
+  flex: 65%;
+  padding: 15px;
+}
+
+/* Style the search box */
+#mySearch {
+  width: 100%;
+  font-size: 18px;
+  padding: 11px;
+  border: 1px solid #ddd;
+}
+
+/* Style the navigation menu inside the left column */
+#myMenu {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myMenu li a {
+  padding: 12px;
+  text-decoration: none;
+  color: black;
+  display: block
+}
+
+#myMenu li a:hover {
+  background-color: #eee;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~end of The search CSS~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+</style>
+
+
+
+
+<body>
+
+<div class="sidenav">
+
+    <nav>
+    <div class="row">
+        <div class="left" style="background-color:#bbb;">
+          <h2>Search</h2>
+          <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search.." title="Type in a category">
+
+        </div>
+    </div>
+    
+        
+        <ul class="nav flex-column" id="nav_accordion">
+            <li class="nav-item">
+                <a class="nav-link" href="#"> Link name </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" data-bs-target="#menu_item1" href="#"> Submenu links <i class="bi small bi-caret-down-fill"></i> </a>
+                <ul id="menu_item" class="menu" class="submenu collapse" data-bs-parent="#nav_accordion">
+                    <li><a class="nav-link" href="#">Sales Type Report </a></li>
+                    <li><a class="nav-link" href="#">UL Sales </a></li>
+                    <li><a class="nav-link" href="#">Menu Item Report </a> </li>
+                    <li><a class="nav-link" href="#">Tax Report </a></li>
+                    <li><a class="nav-link" href="#">PPA Report </a></li>
+                    <li><a class="nav-link" href="#">Receipt Summary Report </a> </li>
+                    <li><a class="nav-link" href="#">Entertainer Sales Report </a></li>
+                    <li><a class="nav-link" href="#">VIP Summary Report </a></li>
+                    <li><a class="nav-link" href="#">Cab Payouts </a> </li>
+                    <li><a class="nav-link" href="#">Cab Payouts Export </a></li>
+                    <li><a class="nav-link" href="#">Server Sales Summary </a> </li>
+                </ul>
+        
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" data-bs-target="#menu_item2" href="#"> More menus <i class="bi small bi-caret-down-fill"></i> </a>
+                <ul id="menu_item" class="submenu collapse" data-bs-parent="#nav_accordion">
+                    <li><a class="nav-link" href="#">Submenu item 4 </a></li>
+                    <li><a class="nav-link" href="#">Submenu item 5 </a></li>
+                    <li><a class="nav-link" href="#">Submenu item 6 </a></li>
+                    <li><a class="nav-link" href="#">Submenu item 6 </a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"> Another page </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"> Demo link </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"> Menu item </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"> Something </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"> Other link </a>
+            </li>
+        </ul>
+        </nav>
+    
+</div>
+
+</body>
+
+<script>
+function myFunction() {
+  var input, filter, ul, li, a, i;
+  input = document.getElementById("mySearch");
+  filter = input.value;
+  ul = document.getElementById("nav_accordion");
+  li=ul.getElementsByClassName("nav-item");
+  for (i = 0; i < li.length; i++) {
+    a = li[i].getElementsByTagName("a")[0];
+    if (a.innerHTML.indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
+</script>
+   
+
+
+</html> 
