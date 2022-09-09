@@ -29,8 +29,8 @@
     
             <a id="sub1" href="#">sub 1</a>
             <ul class="dropdown-menu">
-                <li><a href="#" id="link_1" onclick="cloneFunc(this.id)">link 1</a></li>
-                <li><a href="#" onclick="CloneFunction()">link 2</a></li>
+                <li><a href="#home" id="link_1" onclick="cloneFunc(this.id)">link 1</a></li>
+                <li><a href="#" id="link_2" onclick="cloneFunc(this.id)">link 2</a></li>
                 <li><a href="#">link 3</a></li>
                 <li><a href="#">link 4</a></li>
             </ul>
@@ -59,18 +59,42 @@ function CloneFunction() {
   const node = document.getElementById(clickID);
   const clone = node.cloneNode(true);
   alert(clone);
+  
   return clone;
 }
 
+
+
 function cloneFunc(clickID) {
-  
-  
   
   const node = document.getElementById(clickID);
   const clone = node.cloneNode(true);
-
   alert(clone.innerText);
-  return clone;
+
+
+  items.forEach((item, i) => {
+
+
+  const el = document.createElement("a");
+
+  clone.classList.add("menu-items");
+  clone.setAttribute("id", `menu-${i + 1}`);
+
+  
+  
+  // Create a list item
+  const li = document.createElement("li");
+  // Append the anchor to the list item
+  li.appendChild(clone);
+
+  
+  // Append the list item to the list
+  navList.appendChild(li);
+  clone.setAttribute("onclick","null");
+
+});
+
+
  }
 
 
@@ -96,10 +120,10 @@ var elem = document.activeElement.textContent;
 
     <div class="TabNavigation">
       <ul id="Btn-list">
-        <li class="menu-items" id="menu-1" class="active"> <a  href="#home">Home <span float="right" class=".closebtn" disabled aria-label="Close" onclick="this.parentElement.style.display = 'none';"> <i class="fa fa-close"></i></span> </a></li>
-        <li class="menu-items" id="menu-1"><a>News<span float="right" class=".closebtn" disabled aria-label="Close" onclick="this.parentElement.style.display = 'none';"> <i class="fa fa-close"></i></span></a></li>
-        <li class="menu-items" id="menu-1"><a href="#contact">Contact</a></li>
-        <li class="menu-items" id="menu-1"><a  href="#about">About</a></li>
+        <li class="menu-items" id="menu-1" class="active"> <a  href="#home">Home <span float="right" class=".closebtn" disabled aria-label="Close" onclick="this.parentElement.style.display = 'none';"> <i class="fa fa-remove"></i></span> </a></li>
+        <li class="menu-items" id="menu-2"><a>News<span float="right" class=".closebtn" disabled aria-label="Close" onclick="this.parentElement.style.display = 'none';"> <i class="fa fa-close"></i></span></a></li>
+        <li class="menu-items" id="menu-3"><a href="#contact">Contact</a></li>
+        <li class="menu-items" id="menu-4"><a  href="#about">About</a></li>
       </ul>
     </div>
 
@@ -108,29 +132,14 @@ var elem = document.activeElement.textContent;
 
 const navMenu = document.querySelectorAll("section");
 const navList = document.getElementById("Btn-list");
-var items = ["Section 1", "Section 2", "Section 3", "Section 4"];
+var items = ["section 1","section 2","section 3","section 4","section 5"];
 
-var clickID="link_1";
-  navList.appendChild(cloneFunc(clickID));
+  
 //Build the nav
-items.forEach((item, i) => {
-  
-  const el = document.createElement("a");
-  el.innerText = item;
-  el.classList.add("menu-items");
-  el.setAttribute("id", `menu-${i + 1}`);
-  el.href = `#section${i + 1}`;
-  
-  // Create a list item
-  const li = document.createElement("li")
-  // Append the anchor to the list item
-  li.appendChild(el);
-  
-  // Append the list item to the list
-  navList.appendChild(li);
 
 
-});
+
+
 
 </script>
 
