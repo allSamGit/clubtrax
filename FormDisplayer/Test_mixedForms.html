@@ -64,34 +64,42 @@ function CloneFunction() {
 }
 
 
+const items = ["menu-0"];
 
 function cloneFunc(clickID) {
   
+  
   const node = document.getElementById(clickID);
+  var flag=false;
+
   const clone = node.cloneNode(true);
   alert(clone.innerText);
+   //added code
 
+   items.forEach((item, i) => {
+    if(node.id==items[i+1]){
+   alert("Duplicated detected");
+   flag=true;
+   alert(flag);
+  }
+    clone.setAttribute('id',`menu-${i + 1}`);
+  });
+   items.push(node.id);
+   alert(items);
 
-  
-
-  
-
+   
+  if(flag==false){
+    alert(flag);
   const el = document.createElement("a");
   const span=document.createElement("span");
   span.setAttribute("class",".closebutton");
   span.textContent="X";
   span.setAttribute("onclick","this.parentElement.style.display='none';");
   span.setAttribute("value","close");
-  items.forEach((item, i) => {
-  item.innerText=clone.innerText;
-  clone.setAttribute("id", `menu-${i + 1}`);
-   });
+
 
   clone.classList.add("menu-items");
-  
   clone.appendChild(span);
-  
-  
   // Create a list item
   const li = document.createElement("li");
   var count=0,counter=0;
@@ -101,17 +109,11 @@ function cloneFunc(clickID) {
   // Append the list item to the list
   navList.appendChild(li);
   clone.setAttribute("onclick","null");
+  alert(items);
+  }
 
-
-
- }
-
-  
-
-  
-
-
-
+}
+ 
 var elem = document.activeElement.textContent; 
     /* Extract the text from an element*/
     function currentElem()
@@ -144,7 +146,7 @@ var elem = document.activeElement.textContent;
 //<li class="menu-items" id="menu-1" class="active"> <a  href="#home">Home <span float="right" class=".closebtn" disabled aria-label="Close" onclick="this.parentElement.style.display = 'none';"> <i class="fa fa-remove"></i></span> </a></li>
 const navMenu = document.querySelectorAll("section");
 const navList = document.getElementById("Btn-list");
-var items = ["menu-item 0","section 2","section 3","section 4","section 5"];
+
 
   
 //Build the nav
