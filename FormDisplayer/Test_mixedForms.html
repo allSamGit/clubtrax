@@ -77,22 +77,23 @@ function cloneFunc(clickID) {
   
 
   const el = document.createElement("a");
-  const i=document.createElement("i");
-  i.setAttribute("id",'close');
-  i.setAttribute("class","fa fa-close");
-  i.setAttribute("value","X");
+  const span=document.createElement("span");
+  span.setAttribute("class"," fa fa-close");
+  span.setAttribute("onclick","this.parentElement.style.display='none';");
+  span.setAttribute("value","close");
   items.forEach((item, i) => {
   item.innerText=clone.innerText;
   clone.setAttribute("id", `menu-${i + 1}`);
-});
+   });
 
   clone.classList.add("menu-items");
   
-  clone.appendChild(i);
+  clone.appendChild(span);
   
   
   // Create a list item
   const li = document.createElement("li");
+  var count=0,counter=0;
   // Append the anchor to the list item
   li.appendChild(clone);
  
@@ -100,11 +101,7 @@ function cloneFunc(clickID) {
   navList.appendChild(li);
   clone.setAttribute("onclick","null");
 
-  document.getElementById('close').onclick = function() {
-    this.parentNode.remove();
-    return false;
-  };
- 
+
 
  }
 
