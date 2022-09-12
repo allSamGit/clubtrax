@@ -78,7 +78,8 @@ function cloneFunc(clickID) {
 
   const el = document.createElement("a");
   const span=document.createElement("span");
-  span.setAttribute("class"," fa fa-close");
+  span.setAttribute("class",".closebutton");
+  span.textContent="X";
   span.setAttribute("onclick","this.parentElement.style.display='none';");
   span.setAttribute("value","close");
   items.forEach((item, i) => {

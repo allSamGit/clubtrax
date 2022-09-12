@@ -36,8 +36,13 @@ li a:hover:not(.active) {
     color: #000;
   }
   .closebtn{
-  float: right;
   font-size: 30px;
   font-weight: bold;
   cursor: pointer;
+  }
+  #menu-5 .closebutton{
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    float:right;
   }
