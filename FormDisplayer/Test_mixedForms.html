@@ -58,58 +58,89 @@ function CloneFunction() {
   alert(getClickID(clickID));
   const node = document.getElementById(clickID);
   const clone = node.cloneNode(true);
-  alert(clone);
+  
   
   return clone;
 }
 
+function nonDupList(list){
+   items = [...new Set(list)];
+  return list;
+}
 
-const items = ["menu-0"];
+
+const items = ["link_0"];
+const ids=["id-0"];
 
 function cloneFunc(clickID) {
   
   
+  const el = document.createElement("a");
+  const span=document.createElement("span");
+
   const node = document.getElementById(clickID);
   var flag=false;
 
   const clone = node.cloneNode(true);
   alert(clone.innerText);
+  alert(clone.id);
    //added code
-
+ 
    items.forEach((item, i) => {
     if(node.id==items[i+1]){
    alert("Duplicated detected");
    flag=true;
-   alert(flag);
   }
     clone.setAttribute('id',`menu-${i + 1}`);
-  });
-   items.push(node.id);
-   alert(items);
+    span.setAttribute('id',`id-${i+1}`);
+    let id = document.getElementsByTagName("span")[i].id;
+    if(!(clone.id.includes(`menu-${i + 1}`))){
+      items.splice(i+1, 1);
+      span.id.splice(i+1,1);
+      ids.splice(i+1,1);
+    }
 
+  });
+
+  items.push(node.id);
+
+  
+  let uniqueItems = [];
+  items.forEach((element) => {
+    if (!uniqueItems.includes(element)) {
+      uniqueItems.push(element);
+    }
+  });
+  
+
+  
+  ids.push(span.id);
+   
+   alert(clone.id);
+   alert(items);
+   alert(uniqueItems);
+   alert(ids);
+   alert(flag);
    
   if(flag==false){
-    alert(flag);
-  const el = document.createElement("a");
-  const span=document.createElement("span");
+    
+
   span.setAttribute("class",".closebutton");
   span.textContent="X";
   span.setAttribute("onclick","this.parentElement.style.display='none';");
   span.setAttribute("value","close");
-
+  
 
   clone.classList.add("menu-items");
   clone.appendChild(span);
   // Create a list item
   const li = document.createElement("li");
-  var count=0,counter=0;
   // Append the anchor to the list item
   li.appendChild(clone);
  
   // Append the list item to the list
   navList.appendChild(li);
   clone.setAttribute("onclick","null");
-  alert(items);
   }
 
 }
