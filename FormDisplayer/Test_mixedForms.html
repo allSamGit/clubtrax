@@ -68,9 +68,20 @@ function nonDupList(list){
   return list;
 }
 
+const ids=[];
 
-const items = ["link_0"];
-const ids=["id-0"];
+function removeID(closeID){
+  
+  ids.push(closeID.id);
+  closeID.parentNode.remove();
+  return ids;
+}
+
+
+const items = ['link_0'];
+;
+let uniqueItems = ['link_0'];
+let uniqueIds= ['id_0'];
 
 function cloneFunc(clickID) {
   
@@ -82,30 +93,36 @@ function cloneFunc(clickID) {
   var flag=false;
 
   const clone = node.cloneNode(true);
-  alert(clone.innerText);
-  alert(clone.id);
+  
    //added code
  
    items.forEach((item, i) => {
+    
+   /* if(items.includes(removeID(i))){
+      flag=false;
+    } */
     if(node.id==items[i+1]){
    alert("Duplicated detected");
    flag=true;
   }
     clone.setAttribute('id',`menu-${i + 1}`);
-    span.setAttribute('id',`id-${i+1}`);
-    let id = document.getElementsByTagName("span")[i].id;
-    if(!(clone.id.includes(`menu-${i + 1}`))){
-      items.splice(i+1, 1);
-      span.id.splice(i+1,1);
+    span.setAttribute('id',`id-${i + 1}`);
+
+   /*let id = document.getElementsByTagName("span")[i].id;
+    if((clone.id.includes(`menu-${i + 1}`))){
+      uniqueItems.splice(i+1, 1);
+      //uniqueIds.splice(i+1,1);
       ids.splice(i+1,1);
-    }
+    } */
+    
 
   });
 
+
+
   items.push(node.id);
 
-  
-  let uniqueItems = [];
+ 
   items.forEach((element) => {
     if (!uniqueItems.includes(element)) {
       uniqueItems.push(element);
@@ -114,20 +131,25 @@ function cloneFunc(clickID) {
   
 
   
-  ids.push(span.id);
+  //ids.push(span.id);
+
+
+  let uniqueIds = ids.filter((element, index) => {
+    return ids.indexOf(element) === index;
+});
+   
    
    alert(clone.id);
-   alert(items);
    alert(uniqueItems);
-   alert(ids);
-   alert(flag);
+   alert(uniqueIds);
+   alert(ids.length);
    
   if(flag==false){
     
 
   span.setAttribute("class",".closebutton");
   span.textContent="X";
-  span.setAttribute("onclick","this.parentElement.style.display='none';");
+  span.setAttribute("onclick","removeID(this)");
   span.setAttribute("value","close");
   
 
