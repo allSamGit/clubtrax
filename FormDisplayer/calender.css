@@ -1,0 +1,27 @@
+.calender div {
+
+    display: inline-block;
+    color: black;
+    text-align: left;
+  
+    text-decoration: none;
+    font-size: 17px;
+    border-radius: 5px;
+    
+  }
+  .calender input[type=text]{
+      text-align: left;
+      float:right;
+  }
+  .calender .search-container{
+      float:right;
+  }
+  input[type=datetime-local]{
+    border-radius: 4px;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .calender .search-container {
+      float: none;
+    }
+  }

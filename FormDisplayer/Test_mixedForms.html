@@ -29,7 +29,7 @@
     
             <a id="sub1" href="#">sub 1</a>
             <ul class="dropdown-menu">
-                <li><a href="#home" id="link_1" onclick="cloneFunc(this.id)">link 1</a></li>
+                <li><a href="#home" id="link_1" src="Form1.pdf" onclick="cloneFunc(this.id)">link 1</a></li>
                 <li><a href="#" id="link_2" onclick="cloneFunc(this.id)">link 2</a></li>
                 <li><a href="#">link 3</a></li>
                 <li><a href="#">link 4</a></li>
@@ -50,7 +50,8 @@
     </ul>
 
   </div>
-    
+
+  
   
     <script>
 
@@ -71,42 +72,41 @@ function nonDupList(list){
 const ids=[];
 
 function removeID(closeID){
-  
-  ids.push(closeID.id);
+   
+  ids.push(closeID.parentNode.id);
   closeID.parentNode.remove();
   return ids;
 }
 
 
 const items = ['link_0'];
-;
+
 let uniqueItems = ['link_0'];
 let uniqueIds= ['id_0'];
+let generatedURL="Form3.pdf";       //////This URL needs to be generated//////////////////////////////////////////////////
 
 function cloneFunc(clickID) {
   
-  
+  const node = document.getElementById(clickID);
   const el = document.createElement("a");
   const span=document.createElement("span");
+  setURL(generatedURL);
 
-  const node = document.getElementById(clickID);
   var flag=false;
 
-  const clone = node.cloneNode(true);
+  items.forEach((element) => {
+    if (!uniqueItems.includes(element)) {
+      uniqueItems.push(element);
+    }
+  });
   
    //added code
+   items.push(node.id);
  
    items.forEach((item, i) => {
-    
-   /* if(items.includes(removeID(i))){
-      flag=false;
-    } */
-    if(node.id==items[i+1]){
-   alert("Duplicated detected");
-   flag=true;
-  }
-    clone.setAttribute('id',`menu-${i + 1}`);
-    span.setAttribute('id',`id-${i + 1}`);
+//  clone.setAttribute('id',`menu-${i + 1}`);
+  span.setAttribute('id',`id-${i + 1}`);
+   
 
    /*let id = document.getElementsByTagName("span")[i].id;
     if((clone.id.includes(`menu-${i + 1}`))){
@@ -114,45 +114,51 @@ function cloneFunc(clickID) {
       //uniqueIds.splice(i+1,1);
       ids.splice(i+1,1);
     } */
+   
+
+    if(uniqueItems[i+1]==node.id){
+   alert("Duplicated detected");
+   flag=true;
+  }
     
-
   });
-
-
-
-  items.push(node.id);
-
+  
+ /* if(ids.includes(node.id)){
+      uniqueItems.slice(0,-1);
+      flag=false;
+    } */
  
-  items.forEach((element) => {
-    if (!uniqueItems.includes(element)) {
-      uniqueItems.push(element);
-    }
-  });
-  
+
+
 
   
-  //ids.push(span.id);
+  
+ 
+
+  
 
 
-  let uniqueIds = ids.filter((element, index) => {
+
+  var uniqueIds = ids.filter((element, index) => {
     return ids.indexOf(element) === index;
 });
    
-   
-   alert(clone.id);
+  ////////////////////////////////////////////debug/////////////////////////////// 
+   alert(node.id);
+   alert(items);
    alert(uniqueItems);
    alert(uniqueIds);
-   alert(ids.length);
+   alert(ids);
+   //////////////////////////////////////////////////////////////////////////////
+   if(flag==false){
    
-  if(flag==false){
-    
-
+  const clone = node.cloneNode(true);
   span.setAttribute("class",".closebutton");
   span.textContent="X";
   span.setAttribute("onclick","removeID(this)");
   span.setAttribute("value","close");
   
-
+  
   clone.classList.add("menu-items");
   clone.appendChild(span);
   // Create a list item
@@ -194,6 +200,17 @@ var elem = document.activeElement.textContent;
     </div>
 
 
+    
+    <input type="button" value="click me" onclick="setURL(generatedURL)">
+
+    <div class="row">
+      <div class="column">
+        <iframe src="Form1.pdf" alt="Nature" style="width:100%" onclick="myFunction();" id="iframe-overlay-div"></iframe>
+        <a href="Form1.pdf" style="position:absolute; top:0; left:0; display:inline-block; z-index:5;"></a>
+      </div>
+      
+
+
 <script>
 
 //<li class="menu-items" id="menu-1" class="active"> <a  href="#home">Home <span float="right" class=".closebtn" disabled aria-label="Close" onclick="this.parentElement.style.display = 'none';"> <i class="fa fa-remove"></i></span> </a></li>
@@ -202,8 +219,16 @@ const navList = document.getElementById("Btn-list");
 
 
   
-//Build the nav
+function setURL(src){
+    document.getElementById('iframe-overlay-div').src = src;
+}
 
+function myFunction() {
+
+
+var iframe=document.querySelector('iframe');
+iframe.parentElement.style.display = "block";
+}
 
 
 
