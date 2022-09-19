@@ -72,8 +72,15 @@ function nonDupList(list){
 const ids=[];
 
 function removeID(closeID){
-   
+  
+  
+  const index = uniqueItems.indexOf(closeID.parentNode.id);
   ids.push(closeID.parentNode.id);
+  if(index>-1){
+    alert(uniqueItems);
+    uniqueItems.splice(index, 1);
+    
+  }
   closeID.parentNode.remove();
   return ids;
 }
@@ -93,21 +100,24 @@ function cloneFunc(clickID) {
   setURL(generatedURL);
 
   var flag=false;
-
-  items.forEach((element) => {
-    if (!uniqueItems.includes(element)) {
-      uniqueItems.push(element);
-    }
-  });
+  
+  
+  items.push(node.id);
   
    //added code
-   items.push(node.id);
- 
-   items.forEach((item, i) => {
-//  clone.setAttribute('id',`menu-${i + 1}`);
-  span.setAttribute('id',`id-${i + 1}`);
    
 
+  
+ 
+   uniqueItems.forEach((item, i) => {
+//  clone.setAttribute('id',`menu-${i + 1}`);
+  span.setAttribute('id',`id-${i + 1}`);
+  if(uniqueItems[i+1]==node.id){
+   alert("Duplicated detected");
+   flag=true;
+  } 
+   
+   });
    /*let id = document.getElementsByTagName("span")[i].id;
     if((clone.id.includes(`menu-${i + 1}`))){
       uniqueItems.splice(i+1, 1);
@@ -116,12 +126,9 @@ function cloneFunc(clickID) {
     } */
    
 
-    if(uniqueItems[i+1]==node.id){
-   alert("Duplicated detected");
-   flag=true;
-  }
+   
     
-  });
+  
   
  /* if(ids.includes(node.id)){
       uniqueItems.slice(0,-1);
@@ -135,20 +142,18 @@ function cloneFunc(clickID) {
   
  
 
-  
-
-
-
-  var uniqueIds = ids.filter((element, index) => {
+    var uniqueIds = ids.filter((element, index) => {
     return ids.indexOf(element) === index;
 });
-   
-  ////////////////////////////////////////////debug/////////////////////////////// 
+
+
+  /*//////////////////////////////////////////debug/////////////////////////////// 
    alert(node.id);
    alert(items);
+   alert(ids); */
    alert(uniqueItems);
-   alert(uniqueIds);
-   alert(ids);
+ //  alert(uniqueIds);
+   
    //////////////////////////////////////////////////////////////////////////////
    if(flag==false){
    
@@ -171,6 +176,13 @@ function cloneFunc(clickID) {
   clone.setAttribute("onclick","null");
   }
 
+  items.forEach((element) => {
+    if (!uniqueItems.includes(element)) {
+      uniqueItems.push(element);
+    }
+  });
+  
+  alert(uniqueItems);
 }
  
 var elem = document.activeElement.textContent; 
@@ -192,10 +204,7 @@ var elem = document.activeElement.textContent;
     <div class="TabNavigation">
       <ul id="Btn-list">
         
-        <li class="menu-items" id="menu-1" class="active"> <a  href="#home" data-close>Home <span aria-hidden="true">&times;</span> </a></li>
-        <li class="menu-items" id="menu-2"><a>News<span float="right" class=".closebtn" disabled aria-label="Close" onclick="this.parentElement.style.display = 'none';"> <i class="fa fa-close"></i></span></a></li>
-        <li class="menu-items" id="menu-3"><a href="#contact">Contact</a></li>
-        <li class="menu-items" id="menu-4"><a  href="#about">About</a></li>
+       
       </ul>
     </div>
 
@@ -208,6 +217,7 @@ var elem = document.activeElement.textContent;
         <iframe src="Form1.pdf" alt="Nature" style="width:100%" onclick="myFunction();" id="iframe-overlay-div"></iframe>
         <a href="Form1.pdf" style="position:absolute; top:0; left:0; display:inline-block; z-index:5;"></a>
       </div>
+    </div>
       
 
 
