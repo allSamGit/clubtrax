@@ -5,9 +5,11 @@
     <link rel="stylesheet" href="ReportDisplay.css">
     
     <link rel="stylesheet" href="sidebar.css">
-    <link rel="stylesheet" href="calender.css">  
+    <link rel="stylesheet" href="calender.css"> 
+    <link rel="stylesheet" href="mixedtab.css">
     
     <link rel="stylesheet" href="dropdown-submenu.css">
+
     <script src="website.js"></script>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -180,11 +182,11 @@ body {
 
     <div class="leftcolumn">
     
-            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block; position: static; margin-bottom: 5px; *width: 300px; height:700px">
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block; position: static; margin-bottom: 5px; *width: 300px; height:700px">
                 <li class="dropdown-submenu ">
               
                   <a tabindex="-1" class="dropdown-toggle topLevel" data-toggle="dropdown" href="#">
-                      Maun Topic
+                      Main Topic
                       <i class="icon icon-caret-right"></i>
                     </a>
                   <ul class="dropdown-menu">
@@ -192,7 +194,7 @@ body {
               
                       <a id="sub1" href="#">sub 1</a>
                       <ul class="dropdown-menu">
-                          <li><a href="#home" id="link_1" src="Form1.pdf">link 1</a></li>
+                          <li><a href="#home" id="link_1">link 1</a></li>
                           <li><a href="#" id="link_2">link 2</a></li>
                           <li><a href="#">link 3</a></li>
                           <li><a href="#">link 4</a></li>
@@ -209,13 +211,15 @@ body {
                       <a href="#">sub 3</a>
                     </li>
                   </ul>
+                  
+                  <div>
+                    <button width="100%" type="button" class="btn btn-primary navbar-btn btn-md btn-block">
+                       <span  class="glyphicon glyphicon-print"></span> 
+                       Print   
+                     </button>
+               </div>
                 </li>
-                <div>
-                     <button width="100%" type="button" class="btn btn-primary navbar-btn btn-md btn-block">
-                        <span  class="glyphicon glyphicon-print"></span> 
-                        Print   
-                      </button>
-                </div>
+              
 
             </ul>
         
