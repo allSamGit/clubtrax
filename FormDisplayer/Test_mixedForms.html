@@ -3,7 +3,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="ReportDisplay.css">
-<link rel="stylesheet" href="navbar.css">
+
 <link rel="stylesheet" href="mixedtab.css">
 <link rel="stylesheet" href="dropdown-submenu.css">
 
@@ -31,7 +31,7 @@
             <ul class="dropdown-menu">
                 <li><a href="#home" id="link_1" src="Form1.pdf" onclick="cloneFunc(this.id)">link 1</a></li>
                 <li><a href="#" id="link_2" onclick="cloneFunc(this.id)">link 2</a></li>
-                <li><a href="#">link 3</a></li>
+                <li><a href="#"id="link_3">link 3</a></li>
                 <li><a href="#">link 4</a></li>
             </ul>
             <li class="dropdown-submenu">
@@ -92,23 +92,25 @@ let uniqueItems = ['link_0'];
 let uniqueIds= ['id_0'];
 let generatedURL="Form3.pdf";       //////This URL needs to be generated//////////////////////////////////////////////////
 
+
+
+
+
+
+
 function cloneFunc(clickID) {
   
   const node = document.getElementById(clickID);
   const el = document.createElement("a");
   const span=document.createElement("span");
-  setURL(generatedURL);
-
   var flag=false;
-  
-  
+
+
+
   items.push(node.id);
   
    //added code
-   
-
   
- 
    uniqueItems.forEach((item, i) => {
 //  clone.setAttribute('id',`menu-${i + 1}`);
   span.setAttribute('id',`id-${i + 1}`);
@@ -118,29 +120,7 @@ function cloneFunc(clickID) {
   } 
    
    });
-   /*let id = document.getElementsByTagName("span")[i].id;
-    if((clone.id.includes(`menu-${i + 1}`))){
-      uniqueItems.splice(i+1, 1);
-      //uniqueIds.splice(i+1,1);
-      ids.splice(i+1,1);
-    } */
-   
 
-   
-    
-  
-  
- /* if(ids.includes(node.id)){
-      uniqueItems.slice(0,-1);
-      flag=false;
-    } */
- 
-
-
-
-  
-  
- 
 
     var uniqueIds = ids.filter((element, index) => {
     return ids.indexOf(element) === index;
@@ -227,11 +207,9 @@ var elem = document.activeElement.textContent;
 const navMenu = document.querySelectorAll("section");
 const navList = document.getElementById("Btn-list");
 
+alert(typeof(navList));
 
   
-function setURL(src){
-    document.getElementById('iframe-overlay-div').src = src;
-}
 
 function myFunction() {
 

@@ -39,6 +39,7 @@
         /* On mouse-over */
         .sidenav a:hover, .dropdown-btn:hover {
         color: #f1f1f1;
+        background-color: #3e8e41;
         }
 
         /* Main content */
@@ -87,10 +88,10 @@
         .dropdown-container a:hover {background-color: #ddd;}
 
         .dropdown-menu:hover .dropdown-container,#myDropdown {display: block;}
+        .dropdown-menu .dropdown-container:hover #myDropdown{display: block;} 
 
+        .dropdown-menu:hover .drodropdown-btn {background-color: #3e8e41;}
       
-
-        .dropdown-menu:hover .dropbtn {background-color: #3e8e41;}
 
         /* Some media queries for responsiveness */
         @media screen and (max-height: 450px) {
@@ -136,7 +137,7 @@
         <div class="dropdown-menu">
         <button class="dropdown-btn-main">Dropdown 2<i class="fa fa-caret-right"></i></button>
         <div class="dropdown-container">
-        <button class="dropdown-btn">Dropdown2-1<i class="fa fa-caret-right"></i></button>
+        <button class="dropdown-btn-main">Dropdown2-1<i class="fa fa-caret-right"></i></button>
             <div class="dropdown-container">
               <a href="#Test">Link 1</a>
               <a href="#">Link 2</a>
@@ -204,24 +205,7 @@ function TriggerElement(event) {
       
       
 
-        var dropdown = document.getElementsByClassName("dropdown-btn");
-        var i;
-
-        for (i = 0; i < dropdown.length; i++) {
-        dropdown[i].addEventListener("click", function () {
-        this.classList.toggle("active");
-        var dropdownContent = this.nextElementSibling;
-        if (dropdownContent.style.display === "block") {
-        dropdownContent.style.display = "none";
-        }
-        
-         else {
-        dropdownContent.style.display = "block";
-        }
-
-        });
-        }
-
+     
         document.addEventListener('click', function HandleClick(event) {
         const box = document.getElementById('myDropDown');
 
@@ -239,7 +223,7 @@ function TriggerElement(event) {
 <script>
   // Add active class to the current button (highlight it)  
   var myDropdown = document.getElementById("myDropdown");
-  var btns=myDropdown.getElementsByClassName("dropdown-btn");
+  var btns=myDropdown.getElementsByClassName("dropdown-btn-main");
 
   for (var i = 0; i < btns.length; i++) {
     btns[i].addEventListener("click", function myFunction() {
@@ -247,7 +231,7 @@ function TriggerElement(event) {
     if (current.length > 0) { 
       current[0].className = current[0].className.replace(" active", "");
     }
-    this.className += " active";
+    this.className += "active";
     });
   }
   </script>
