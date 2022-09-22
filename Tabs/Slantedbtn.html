@@ -1,0 +1,47 @@
+<div class="button-default button-slanted">
+    <span class="button-slanted-content">Slanted Button</span>
+  </div>
+  
+  <div class="button-default button-slanted">
+    <span class="button-slanted-content">Slanted Button with super long text</span>
+  </div>
+  
+  <div class="button-default button-slanted button-fixedwidth">
+    <span class="button-slanted-content">Slanted Button fixed width</span>
+  </div>
+  
+
+  <style>
+    body {
+  font-family: "Lato", sans-serif;  
+  font-weight: 100;
+}
+
+.button-default {
+  color: white;
+  background-color: teal;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  margin: 10px;
+  display: inline-block;
+}
+
+.button-slanted {
+  -ms-transform: skewX(0deg);
+  -webkit-transform: skewX(-20deg);
+  border-top-right-radius:10px;
+  transform: skewX(10deg);
+}
+
+.button-slanted-content {
+  -ms-transform: skewX(0deg);
+  -webkit-transform: skewX(0deg);
+  transform: skewX(0deg);  
+  display: inline-block;
+}
+
+.button-fixedwidth {
+  width: 100px;
+}
+  </style>

@@ -7,15 +7,16 @@
     margin: 25px 0;
   }
   .tab {
-    float: left;
+    display: inline-block;
   }
-  .tab label {
+  .tab a {
     background: #eee;
     padding: 10px;
     border: 1px solid #ccc;
     margin-left: -1px;
     position: relative;
     left: 1px;
+    text-decoration: none;
   }
   .tab [type="radio"] {
     opacity: 0;
@@ -32,18 +33,18 @@
     overflow: hidden;
   }
 
-  [type="radio"]:focus ~ label {
-    outline: 2px solid blue;
+  a [type="radio"]:hover {
+    background-color: green;
   }
-  [type="radio"]:checked ~ label {
+  [type="radio"]:checked ~ a {
     background: white;
     border-bottom: 1px solid white;
     z-index: 2;
   }
-  [type="radio"]:checked ~ label ~ .content {
+  [type="radio"]:checked ~a ~.content {
     z-index: 1;
   }
-  [type="radio"]:checked ~ label ~ .content > * {
+  [type="radio"]:checked ~a ~.content > * {
     opacity: 1;
     transform: translateX(0);
   }
