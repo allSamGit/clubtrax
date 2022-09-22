@@ -1,25 +1,46 @@
+
+
 $(document).ready(function () {
     var count = $(".topnav").find("a").length-1;
-    if(count==5){
- 
-        const topnav=document.querySelector(".topnav");
-        const hidenav=topnav.querySelector("a:(:first-child)");
-        hidenav.style.display='none';
+
+    const topnavList=document.querySelectorAll(".topnav a:not(:first-child)");
+    
+    if(count>=4){
+     alert(count);
+        
+        
+        for (let i = 0; i <  topnavList.length; i++) {
+          topnavList[i].style.display = 'none';
+        }
+        topnavList[topnavList.length-1].style.display='block';
+
     }
     else{
-        hidnav.style.display='block';
+      topnavList[topnavList.length-1].style.display='none';
     }
+    
     $(".topnavdiv p").after("<h3>Totoal Div Elemennts: "
         + count);
 });
 
 
 function myFunction() {
-    var x = document.getElementById("myTopnav");
-    var count = $(".topnav").find("a").length-1;
-    
-      var dropdownIcon = document.getElementById("icon");
-       dropdownIcon.style.display='block';
+   
+  
+  const topnavList=document.querySelectorAll(".topnav a:not(:first-child)");
+  var x = document.getElementById("myTopnav"); 
+
+  for (let i = 0; i <  topnavList.length; i++) {
+
+  if(topnavList[i].style.display=="none"){
+      topnavList[i].style.display = 'block';
+  }
+  else{
+      topnavList[i].style.display = 'none';
+      topnavList[topnavList.length-1].style.display='block';
+  }
+
+}
     
     if (x.className === "topnav") {
       x.className += " responsive";
@@ -27,5 +48,6 @@ function myFunction() {
       x.className = "topnav";
     }
   
+   
 }
 
