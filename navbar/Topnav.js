@@ -2,13 +2,12 @@
 
 $(document).ready(function () {
     var count = $(".topnav").find("a").length-1;
+    const limitedNumber=4;
 
     const topnavList=document.querySelectorAll(".topnav a:not(:first-child)");
-    
-    if(count>=4){
-     alert(count);
-        
-        
+
+    if(count>=limitedNumber){
+
         for (let i = 0; i <  topnavList.length; i++) {
           topnavList[i].style.display = 'none';
         }
