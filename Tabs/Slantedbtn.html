@@ -1,3 +1,32 @@
+<html>
+ <head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="/navbar/Topnav.css">
+  <link rel="stylesheet" href="slanted.css">
+
+  <script src="tabs.js"></script>
+  <script src="ButtonFunction.js"></script>
+
+
+
+    
+    <link rel="stylesheet" href="/FormDisplayer/mixedtab.css">
+    <link rel="stylesheet" href="/FormDisplayer/dropdown-submenu.css">
+    
+    
+
+  
+    
+
+ </head> 
+
+
+
+
 <div class="button-default button-slanted">
     <span class="button-slanted-content">Slanted Button</span>
   </div>
@@ -7,8 +36,76 @@
   </div>
   
   <div class="button-default button-slanted button-fixedwidth">
-    <span class="button-slanted-content">Slanted Button fixed width</span>
+    <a class="button-slanted-content">Slanted Button fixed width</a>
   </div>
+  <div><br></div>
+
+  <div class="topnav" id="myTopnav">
+    
+    <a href="#home" class="button-default button-slanted active">Home</a>
+    <a href="#news" class="button-default button-slanted">News</a>
+    <a href="#contact" class="button-default button-slanted">Contact</a>
+    <a href="#about" class="button-default button-slanted">About</a>
+
+    <a href="javascript:void(0);" class="icon" id="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
+
+  </div>
+
+  <div class="TabNavigation">
+    <ul id="Btn-list">
+      <li><a href="#" id="link_0">link 0</a></li>
+     
+    </ul>
+  </div>
+
+
+
+  <div class="subnav">
+
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block; position: static; margin-bottom: 5px; *width: 180px;">
+      <li class="dropdown-submenu ">
+    
+        <a tabindex="-1" class="dropdown-toggle topLevel" data-toggle="dropdown" href="#">
+            Main topic
+            <i class="icon icon-caret-right"></i>
+          </a>
+        <ul class="dropdown-menu">
+          <li class="dropdown-submenu">
+    
+            <a id="sub1" href="#">sub 1</a>
+            <ul class="dropdown-menu">
+                <li><a href="#home" id="link_1" src="Form1.pdf" onclick="cloneFunc(this.id)">link 1</a></li>
+                <li><a href="#" id="link_2" onclick="cloneFunc(this.id)">link 2</a></li>
+                <li><a href="#"id="link_3">link 3</a></li>
+                <li><a href="#">link 4</a></li>
+            </ul>
+            <li class="dropdown-submenu">
+                <a href="#">sub 2</a>
+                  <ul class="dropdown-menu">
+                     <li><a href="#">link 1</a></li>
+                     <li><a href="#">link 2</a></li>
+                     <li><a href="#">link 3</a></li>
+                     <li><a href="#">link 4</a></li>
+                  </ul>
+    
+            <a href="#">sub 3</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+  </div>
+
+  <div style="padding-left:16px" class="topnavdiv">
+    
+    <h2>Responsive Topnav Example</h2>
+    <p>Resize the browser window to see how it works.</p>
+    <button>Click Here!</button>
+  </div>
+
+ 
   
 
   <style>
@@ -21,15 +118,16 @@
   color: white;
   background-color: teal;
   text-align: center;
-  text-transform: uppercase;
-  padding: 5px 10px;
-  margin: 10px;
+  padding:5px 10px 5px 10px;
+  margin-right:10px;
+  font-size: 17px;
   display: inline-block;
+  text-decoration: none;
 }
 
 .button-slanted {
   -ms-transform: skewX(0deg);
-  -webkit-transform: skewX(-20deg);
+  -webkit-transform: skewX(0deg);
   border-top-right-radius:10px;
   transform: skewX(10deg);
 }
@@ -43,5 +141,20 @@
 
 .button-fixedwidth {
   width: 100px;
-}
+} 
   </style>
+
+
+<script>
+
+const items = ['link_0'];
+let uniqueItems = ['link_0'];
+let uniqueIds= ['id_0'];
+let generatedURL="Form3.pdf";       //////This URL needs to be generated//////////////////////////////////////////////////
+const ids=[];
+var navbarCount;
+
+const navList=document.getElementById("myTopnav");
+</script>
+
+</html>

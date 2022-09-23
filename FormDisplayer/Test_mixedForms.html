@@ -114,18 +114,18 @@ function cloneFunc(clickID) {
   
    uniqueItems.forEach((item, i) => {
 //  clone.setAttribute('id',`menu-${i + 1}`);
-  span.setAttribute('id',`id-${i + 1}`);
-  if(uniqueItems[i+1]==node.id){
-   alert("Duplicated detected");
-   flag=true;
-  } 
+   span.setAttribute('id',`id-${i + 1}`);
+    if(uniqueItems[i+1]==node.id){
+      alert("Duplicated detected");
+       flag=true;
+   } 
    
-   });
+    });
 
 
     var uniqueIds = ids.filter((element, index) => {
     return ids.indexOf(element) === index;
-});
+   });
 
 
   /*//////////////////////////////////////////debug/////////////////////////////// 
