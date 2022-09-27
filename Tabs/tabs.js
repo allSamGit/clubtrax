@@ -1,10 +1,9 @@
-            
 
 $(document).ready(function () {
     var navbarCount= $("#myTopnav").find("a").length-1;
-    alert(countAdded());
-    const limitedNumber=4;
 
+    const limitedNumber=4;
+    
     const topnavList=document.querySelectorAll(".topnav a:not(:first-child)");
     var totaldiv=navbarCount+countAdded(); 
     if(navbarCount>=limitedNumber){

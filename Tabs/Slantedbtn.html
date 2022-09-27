@@ -6,7 +6,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
   <link rel="stylesheet" href="/navbar/Topnav.css">
-  <link rel="stylesheet" href="slanted.css">
+  <link rel="stylesheet" href="slantedbutton.css">
 
   <script src="tabs.js"></script>
   <script src="ButtonFunction.js"></script>
@@ -14,7 +14,7 @@
 
 
     
-    <link rel="stylesheet" href="/FormDisplayer/mixedtab.css">
+    
     <link rel="stylesheet" href="/FormDisplayer/dropdown-submenu.css">
     
     
@@ -53,11 +53,14 @@
 
   </div>
 
+
+
+  
   <div class="TabNavigation">
-    <ul id="Btn-list">
-      <li><a href="#" id="link_0">link 0</a></li>
+    <div id="Btn-list">
+      <a href="#" id="link_0">link 0</a>
      
-    </ul>
+    </div>
   </div>
 
 
@@ -78,7 +81,7 @@
             <ul class="dropdown-menu">
                 <li><a href="#home" id="link_1" src="Form1.pdf" onclick="cloneFunc(this.id)">link 1</a></li>
                 <li><a href="#" id="link_2" onclick="cloneFunc(this.id)">link 2</a></li>
-                <li><a href="#"id="link_3">link 3</a></li>
+                <li><a href="#"id="link_3" onclick="cloneFunc(this.id)">link 3</a></li>
                 <li><a href="#">link 4</a></li>
             </ul>
             <li class="dropdown-submenu">
@@ -105,44 +108,6 @@
     <button>Click Here!</button>
   </div>
 
- 
-  
-
-  <style>
-    body {
-  font-family: "Lato", sans-serif;  
-  font-weight: 100;
-}
-
-.button-default {
-  color: white;
-  background-color: teal;
-  text-align: center;
-  padding:5px 10px 5px 10px;
-  margin-right:10px;
-  font-size: 17px;
-  display: inline-block;
-  text-decoration: none;
-}
-
-.button-slanted {
-  -ms-transform: skewX(0deg);
-  -webkit-transform: skewX(0deg);
-  border-top-right-radius:10px;
-  transform: skewX(10deg);
-}
-
-.button-slanted-content {
-  -ms-transform: skewX(0deg);
-  -webkit-transform: skewX(0deg);
-  transform: skewX(0deg);  
-  display: inline-block;
-}
-
-.button-fixedwidth {
-  width: 100px;
-} 
-  </style>
 
 
 <script>
@@ -154,7 +119,9 @@ let generatedURL="Form3.pdf";       //////This URL needs to be generated////////
 const ids=[];
 var navbarCount;
 
-const navList=document.getElementById("myTopnav");
+
+
+
 </script>
 
 </html>

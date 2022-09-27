@@ -1,0 +1,35 @@
+body {
+    font-family: "Lato", sans-serif;  
+    font-weight: 100;
+  }
+  
+  .button-default {
+    color: white;
+    background-color: teal;
+    text-align: center;
+    padding:5px 10px 5px 10px;
+    margin-right:10px;
+    font-size: 17px;
+    display: inline-block;
+    text-decoration: none;
+  
+    
+  }
+  
+  .button-slanted {
+    -ms-transform: skewX(0deg);
+    -webkit-transform: skewX(0deg);
+    border-top-right-radius:10px;
+    transform: skewX(10deg);
+  }
+  
+  .button-slanted-content {
+    -ms-transform: skewX(0deg);
+    -webkit-transform: skewX(0deg);
+    transform: skewX(0deg);  
+    display: inline-block;
+  }
+  
+  .button-fixedwidth {
+    width: 100px;
+  } 

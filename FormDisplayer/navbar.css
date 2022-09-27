@@ -1,5 +1,5 @@
 
-ul {
+#Btn-list {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -16,7 +16,6 @@ li {
 li:last-child {
   border-right: none;
 }
-
 li a {
   display: block;
   color: white;

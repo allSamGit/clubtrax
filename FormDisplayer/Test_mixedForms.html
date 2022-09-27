@@ -13,6 +13,9 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+<link rel="stylesheet" href="navbar.css">
+<link rel="stylesheet" href="/Tabs/slantedbutton.css">
+
 </head>
 
     
@@ -112,15 +115,12 @@ function cloneFunc(clickID) {
   
    //added code
   
-   uniqueItems.forEach((item, i) => {
+
 //  clone.setAttribute('id',`menu-${i + 1}`);
-   span.setAttribute('id',`id-${i + 1}`);
-    if(uniqueItems[i+1]==node.id){
-      alert("Duplicated detected");
-       flag=true;
-   } 
+   span.setAttribute('id',`id-1`);
+    
    
-    });
+ 
 
 
     var uniqueIds = ids.filter((element, index) => {
@@ -130,8 +130,8 @@ function cloneFunc(clickID) {
 
   /*//////////////////////////////////////////debug/////////////////////////////// 
    alert(node.id);
-   alert(items);
-   alert(ids); */
+   alert(items);*/
+   alert(ids); 
    alert(uniqueItems);
  //  alert(uniqueIds);
    
@@ -147,6 +147,7 @@ function cloneFunc(clickID) {
   
   clone.classList.add("menu-items");
   clone.appendChild(span);
+  
   // Create a list item
   const li = document.createElement("li");
   // Append the anchor to the list item
@@ -183,8 +184,8 @@ var elem = document.activeElement.textContent;
 
 
     <div class="TabNavigation">
-      <ul id="Btn-list">
-        <li><a href="#" id="link_0">link 0</a></li>
+      <div id="Btn-list">
+        <li id="list"><a href="#" id="link_0">link 0</a></li>
        
       </ul>
     </div>
