@@ -1,6 +1,36 @@
 
   var buttonAddedCounter=0;
   const ids=[];
+  const counter=[];
+
+  $(document).ready(function () {
+
+    
+
+    var navbarCount= $(".topnav").find("a").length-1;
+    totalCount=buttonAddedCounter+navbarCount;
+    const limitedNumber=4;
+
+    //alert(counterNavbar());
+
+    const topnavList=document.querySelectorAll(".topnav a:not(:first-child)");
+    var totaldiv=navbarCount+countAdded(); 
+    if(navbarCount>=limitedNumber){
+
+        for (let i = 0; i <  topnavList.length; i++) {
+          topnavList[i].style.display = 'none';
+        }
+        topnavList[topnavList.length-1].style.display='block';
+
+    }
+    else{
+      topnavList[topnavList.length-1].style.display='none';
+    }
+    
+        $(".topnavdiv p").after("<h3>Totoal Div Elemennts: "
+        + navbarCount);
+        
+});
   
   
   function removeID(closeID){
@@ -9,25 +39,23 @@
     const index = uniqueItems.indexOf(closeID.parentNode.id);
     ids.push(closeID.parentNode.id);
     if(index>-1){
-      alert(uniqueItems);
+      //alert(uniqueItems);
       uniqueItems.splice(index, 1);
       
     }
     closeID.parentNode.remove();
-    buttonAddedCounter--;
+    counter.pop();
+    //alert(counter.length);
     return ids;
   }
   
   
+
   const items = [];
   
   let uniqueItems = ['link_0'];
   let uniqueIds= ['id_0'];
-  let generatedURL="Form3.pdf";       //////This URL needs to be generated//////////////////////////////////////////////////
-  
-  
-  
-  
+  let generatedURL="/FormDisplayer/Form3.pdf";       //////This URL needs to be generated//////////////////////////////////////////////////
   
   
   
@@ -36,12 +64,14 @@
     
     
     const node = document.getElementById(clickID);
+    alert(node.src);
     const el = document.createElement("a");
     const span=document.createElement("span");
     var flag=false;
   
   
-  
+    let ExtractedURL=setURL(clickID,generatedURL);
+
     items.push(node.id);
     
      //added code
@@ -62,8 +92,8 @@
     /*//////////////////////////////////////////debug/////////////////////////////// 
      alert(node.id);
      alert(items);*/
-     alert(ids); 
-     alert(uniqueItems);
+   //  alert(ids); 
+   //  alert(uniqueItems);
    //  alert(uniqueIds);
      
      if(flag==false){
@@ -78,11 +108,13 @@
 
     clone.classList.add("button-default");
     clone.classList.add("button-slanted");
+    clone.setAttribute("onclick",ExtractedURL);
 
     navList.appendChild(clone);
-    buttonAddedCounter=buttonAddedCounter+1;
+    counter.push('1');
+    alert(counter);
 
-    clone.setAttribute("onclick","null");
+    
     }
   
     items.forEach((element) => {
@@ -91,40 +123,18 @@
       }
     });
     
-    alert(uniqueItems);
+   // alert(uniqueItems);
   }
    
 
 
-  $(document).ready(function () {
-    var navbarCount= $("#myTopnav").find("a").length-1;
-    totalCount=buttonAddedCounter+navbarCount;
-    const limitedNumber=4;
-    
-    const topnavList=document.querySelectorAll(".topnav a:not(:first-child)");
-    var totaldiv=navbarCount+countAdded(); 
-    if(navbarCount>=limitedNumber){
-
-        for (let i = 0; i <  topnavList.length; i++) {
-          topnavList[i].style.display = 'none';
-        }
-        topnavList[topnavList.length-1].style.display='block';
-
-    }
-    else{
-      topnavList[topnavList.length-1].style.display='none';
-    }
-    
-        $(".topnavdiv p").after("<h3>Totoal Div Elemennts: "
-        + totaldiv);
-        
-});
 
 
-function myFunction() {
+
+function navbarHide() {
    
   
-  const topnavList=document.querySelectorAll("button-default button-slanted  a:not(:first-child)");
+  const topnavList=document.querySelectorAll(".topnav  a:not(:first-child)");
   var x = document.getElementById("myTopnav"); 
 
   for (let i = 0; i <  topnavList.length; i++) {
@@ -148,7 +158,12 @@ function myFunction() {
    
 }
 
+alert(counter);
 
-function countAdded() {
-    return buttonAddedCounter;
+function counterNavbar() {
+    alert(counter.length);
+}
+
+function setURL(id,URL){
+ return document.getElementById(id).src=URL;
 }
