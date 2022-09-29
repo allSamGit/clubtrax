@@ -1,11 +1,12 @@
 
+
+
 $(document).ready(function () {
     var navbarCount= $("#myTopnav").find("a").length-1;
-
-    const limitedNumber=4;
+    const limitedNumber=5;
     
     const topnavList=document.querySelectorAll(".topnav a:not(:first-child)");
-    var totaldiv=navbarCount+countAdded(); 
+    //var totaldiv=navbarCount+countAdded(); 
     if(navbarCount>=limitedNumber){
 
         for (let i = 0; i <  topnavList.length; i++) {
@@ -19,9 +20,10 @@ $(document).ready(function () {
     }
     
         $(".topnavdiv p").after("<h3>Totoal Div Elemennts: "
-        + DataTransferItemList.length);
+        + navbarCount);
         
 });
+
 
 
 function myFunction() {

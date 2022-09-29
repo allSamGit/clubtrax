@@ -70,6 +70,26 @@ function cloneFunc(clickID) {
   clone.appendChild(span);
   navList.appendChild(clone);
 
+  //alert(navList.includes("a"));
+
+
+
+/*let target = "<a>";
+
+let counter = 0;
+for (Atag of navList) {
+  if (Atag == target) {
+        counter++;
+    }
+};
+alert(counter);*/
+alert(navList.childElementCount);
+alert(navList.childNodes);
+let numb = document.getElementById("myTopnav").childNodes.length;
+var navbarCount= $("#myTopnav").find("a").length-1;
+alert(numb);
+alert(navbarCount);
+
   clone.setAttribute("onclick","null");
   }
 

@@ -2,36 +2,6 @@
   var buttonAddedCounter=0;
   const ids=[];
   const counter=[];
-
-  $(document).ready(function () {
-
-    
-
-    var navbarCount= $(".topnav").find("a").length-1;
-    totalCount=buttonAddedCounter+navbarCount;
-    const limitedNumber=4;
-
-    //alert(counterNavbar());
-
-    const topnavList=document.querySelectorAll(".topnav a:not(:first-child)");
-    var totaldiv=navbarCount+countAdded(); 
-    if(navbarCount>=limitedNumber){
-
-        for (let i = 0; i <  topnavList.length; i++) {
-          topnavList[i].style.display = 'none';
-        }
-        topnavList[topnavList.length-1].style.display='block';
-
-    }
-    else{
-      topnavList[topnavList.length-1].style.display='none';
-    }
-    
-        $(".topnavdiv p").after("<h3>Totoal Div Elemennts: "
-        + navbarCount);
-        
-});
-  
   
   function removeID(closeID){
     
@@ -111,10 +81,19 @@
     clone.setAttribute("onclick",ExtractedURL);
 
     navList.appendChild(clone);
-    counter.push('1');
-    alert(counter);
 
-    
+    alert(navList.childElementCount);
+    alert(navList.childNodes);
+    let numb = document.getElementById("myTopnav").childNodes.length;
+    var navbarCount= $("#myTopnav").find("a").length-1;
+    alert(numb);
+    alert(navbarCount);
+
+     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+    //totalCount=buttonAddedCounter+navbarCount;
+  
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+
     }
   
     items.forEach((element) => {
@@ -122,14 +101,9 @@
         uniqueItems.push(element);
       }
     });
-    
-   // alert(uniqueItems);
+
   }
    
-
-
-
-
 
 function navbarHide() {
    
@@ -148,14 +122,13 @@ function navbarHide() {
   }
 
 }
-    
-    if (x.className === "topnav") {
-      x.className += " responsive";
-    } else {
-      x.className = "topnav";
-    }
-  
-   
+
+if (x.className === "topnav") {
+  x.className += " responsive";
+} else {
+  x.className = "topnav";
+}
+     
 }
 
 alert(counter);
